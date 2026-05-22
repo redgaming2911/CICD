@@ -1,0 +1,32 @@
+{
+  "name": "index.js",
+  "version": "1.0.0",
+  "description": "TODO WEB",
+  "keywords": [
+    "web",
+    "ci",
+    "cd",
+    "TODO"
+  ],
+  "homepage": "https://github.com/redgaming2911/CICD#readme",
+  "bugs": {
+    "url": "https://github.com/redgaming2911/CICD/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redgaming2911/CICD.git"
+  },
+  "license": "MIT",
+  "author": "redgaming2911",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@vitest/coverage-v8": "^4.1.7",
+    "http-server": "^14.1.1",
+    "vitest": "^4.1.7"
+  }
+}

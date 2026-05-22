@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO web</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="src/loginStore.js"></script>
 </head>
 <body>
-    <h1>
-        Trang web <span style="color: rgb(0, 255, 128);">TODO</span>
-    </h1>
-    <h2>
-        Nội dung trang web TODO 2
-    </h2>
-    <img src="https://www.hollywoodreporter.com/wp-content/uploads/2012/12/img_logo_blue.jpg">
+    <h1>Đăng nhập</h1>
+    <form id="form-login" method="POST" action="xulydangnhap.php">
+        <label> email</label>
+        <input type="email" name="email" id="email-input">
+        <br>
+
+        <label> mật khẩu</label>
+        <input type="password" name="password" id="password-input">
+        <br>
+        <button type="submit" id="login-button" data-testid="login-submit">Đăng nhập</button>
+    </form>
+    <script>
+        // Tìm phần tử có id "form-login" 
+        const loginForm = document .getElementById('form-login');
+        // Thêm sự kiện "submit" cho form đăng nhập
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // chặn form gửi dữ liệu đi
+            //thu thập thông tin trên các ô nhập liệu
+            var email = document.getElementById('email-input').value;
+            var password = document.getElementById('password-input').value;
+
+            // Gọi hàm xử lý
+            var thongbao = login(email, password);
+            alert(thongbao);
+        });
+    </script>
+        
 </body>
 </html>
