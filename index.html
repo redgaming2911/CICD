@@ -11,17 +11,19 @@
     <h1>Đăng nhập</h1>
     <form id="form-login" method="POST" action="xulydangnhap.php">
         <label> email</label>
-        <input type="email" name="email" id="email-input">
+        <input type="email" name="email" id="email-input" required>
         <br>
 
         <label> mật khẩu</label>
-        <input type="password" name="password" id="password-input">
+        <input type="password" name="password" id="password-input" required>
         <br>
         <button type="submit" id="login-button" data-testid="login-submit">Đăng nhập</button>
+        <div id="login-message"></div>
     </form>
-    <script>
+    <script type="module">
+        import { login } from './src/loginStore.js';
         // Tìm phần tử có id "form-login" 
-        const loginForm = document .getElementById('form-login');
+        const loginForm = document.getElementById('form-login');
         // Thêm sự kiện "submit" cho form đăng nhập
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault(); // chặn form gửi dữ liệu đi
@@ -31,7 +33,7 @@
 
             // Gọi hàm xử lý
             var thongbao = login(email, password);
-            alert(thongbao);
+            document.getElementById('login-message').textContent = thongbao;
         });
     </script>
         
