@@ -1,6 +1,7 @@
 # AI Agent Guidelines for CICD Project
 
 ## Project Overview
+
 A minimal CI/CD TODO web application with login functionality. This is a compact, single-page project using Node.js with Vitest and Playwright for testing.
 
 ## Folder Structure
@@ -38,6 +39,7 @@ npx http-server
 ```
 
 ### Required Setup
+
 The project has Vitest and Playwright installed but test scripts are not configured. Before running tests, tasks like `npm run test` need proper configuration in `package.json`.
 
 ## Code Conventions
@@ -49,28 +51,32 @@ The project has Vitest and Playwright installed but test scripts are not configu
 ## Quick Agent Tasks
 
 ### When adding new features:
+
 1. Place new logic in `src/` with descriptive function names
 2. Export all public functions
 3. Add corresponding test file in `tests/unit/`
 4. Update styles in `styles/main.css` if needed
 
 ### When testing:
+
 1. Create test file in `tests/unit/` (e.g., `loginStore.test.js`)
 2. Configure `npm test` script in `package.json` to run Vitest
 3. Example test structure:
+
    ```javascript
-   import { describe, it, expect } from 'vitest';
-   import { checkEmail, checkPassword } from '../../src/loginStore.js';
-   
-   describe('loginStore', () => {
-     it('should validate emails', () => {
-       expect(checkEmail('')).toBe(false);
-       expect(checkEmail('test@example.com')).toBe(true);
+   import { describe, it, expect } from "vitest";
+   import { checkEmail, checkPassword } from "../../src/loginStore.js";
+
+   describe("loginStore", () => {
+     it("should validate emails", () => {
+       expect(checkEmail("")).toBe(false);
+       expect(checkEmail("test@example.com")).toBe(true);
      });
    });
    ```
 
 ### When deploying:
+
 - The app is a static site; use http-server or any static hosting
 - Ensure `index.html` is the entry point for the main app
 

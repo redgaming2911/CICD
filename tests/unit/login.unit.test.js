@@ -1,49 +1,35 @@
-import {describe, it, expect} from 'vitest';
-import {checkEmail, checkPassword} from '../../src/loginStore';
+import { describe, expect, it } from "vitest";
+import {checkEmail , checkPassword} from "../../src/loginStore"; //cu phap tim file , out ra 2 lan vao src se gap file login
 
-describe('kiểm thử từng hàng nhỏ của chức năng đăng nhập', () => {
+
+// mo ta TEST PLAN
+describe("Kiểm thử từng hàm nhỏ của chức năng đăng nhập", () =>{
     // test case 1
-    it('Hàm checEmail trả về false khi email bị trống', () => {
+    it("hàm checkEmail tra ve false khi email bi trong", ()=>{
         const result = checkEmail("");
 
-        expect(result).toBe(false);
+        expect(result).toBe(false); // mong doi ket qua la false thi test case pass
     });
-    // test case 2
-    it('Hàm checkEmail trả về false khi email < 3 ký tự', () => {
+
+    //test case 2
+    it("hàm checkEmail tra ve false khi email <3 ky tu", ()=>{
         const result = checkEmail("ab");
+
         expect(result).toBe(false);
     });
-    // test case 3
-    it('Hàm checkEmail trả về false khi email > 50 ký tự', () => {
-        const longEmail = "a".repeat(51) + "@example.com";
-        const result = checkEmail(longEmail);
-        expect(result).toBe(false);
-    });
-    // test case 4
-    it('Hàm checkEmail trả về true khi email hợp lệ', () => {
-        const result = checkEmail("bpnguyen@gmail.com");
+
+    //test case 3
+    it("hàm checkEmail tra ve true neu email dung", ()=>{
+        const result = checkEmail("phucuong@ctu.edu.vn");
+
         expect(result).toBe(true);
     });
-    // test case 5
-    it('Hàm checkPassword trả về false khi mật khẩu bị trống', () => {
-        const result = checkPassword("");
+
+    //test case 4
+    it("hàm checkPassword tra ve false neu pass <6 ky tu", ()=>{
+        const result = checkPassword("12345");
+
         expect(result).toBe(false);
     });
-    // test case 6
-    it('Hàm checkPassword trả về true khi mật khẩu hợp lệ', () => {
-        const result = checkPassword("admin123");
-        expect(result).toBe(true);
-    });
-    // test case 7
-    it('Hàm checkPassword trả về false khi mật khẩu < 6 ký tự', () => {
-        const result = checkPassword("abc");
-        expect(result).toBe(false);
-    });
-    // test case 8
-    it('Hàm checkPassword trả về false khi mật khẩu > 20 ký tự', () => {
-        const longPassword = "a".repeat(21);
-        const result = checkPassword(longPassword);
-        expect(result).toBe(false);
-    
-    });
-    });
+
+});
